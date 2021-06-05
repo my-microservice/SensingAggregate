@@ -1,0 +1,59 @@
+### 10.
+POST http://localhost:8000/api/v1/event-sensings/create
+Content-Type: application/json
+
+{
+  "sensorId": "7bd490f9-e0f9-4a84-a9ac-230429ecb9a1",
+  "sensingValue": {
+    "dustValue": "45.0"
+  },
+  "environmentValue": {
+    "temperature" : "30.0"
+  }
+}
+
+### 11. Test
+
+GET http://localhost:8000/api/v1/nosql-sensings/5a93ef8f-daa7-4d69-9d98-00ce534669cd
+Accept: application/json
+
+> {%
+  client.test("Group Id를 활용하여 시스템에 등록되어 있는 CnC 목록을 조회합니다.", function() {
+      client.assert(response.status === 200, "Response status is not 200")
+
+  })
+ %}
+
+### 11. Test
+
+GET http://localhost:9050/nosql-sensings/5a93ef8f-daa7-4d69-9d98-00ce534669cd
+Accept: application/json
+
+> {%
+  client.test("Group Id를 활용하여 시스템에 등록되어 있는 CnC 목록을 조회합니다.", function() {
+      client.assert(response.status === 200, "Response status is not 200")
+
+  })
+ %}
+
+###
+GET http://localhost:9050/nosql-sensings/csv
+Accept: application/json
+
+> {%
+  client.test("Group Id를 활용하여 시스템에 등록되어 있는 CnC 목록을 조회합니다.", function() {
+      client.assert(response.status === 200, "Response status is not 200")
+
+  })
+ %}
+
+###
+GET http://localhost:8000/api/v1/rdbms-sensings/5a93ef8f-daa7-4d69-9d98-00ce534669cd
+Accept: application/json
+
+> {%
+  client.test("Group Id를 활용하여 시스템에 등록되어 있는 CnC 목록을 조회합니다.", function() {
+      client.assert(response.status === 200, "Response status is not 200")
+
+  })
+ %}

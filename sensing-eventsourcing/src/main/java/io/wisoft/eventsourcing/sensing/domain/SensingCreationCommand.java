@@ -1,0 +1,23 @@
+package io.wisoft.eventsourcing.sensing.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.UUID;
+
+@AllArgsConstructor
+@ToString
+@Getter
+public class SensingCreationCommand {
+
+    @TargetAggregateIdentifier
+    private UUID sensingId;
+    private UUID sensorId;
+    private LocalDateTime sensingTime;
+    private HashMap<String, String> sensingValue;
+    private HashMap<String, String> environmentValue;
+}

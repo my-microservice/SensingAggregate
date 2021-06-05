@@ -1,0 +1,8 @@
+rootProject.name = 'event-sourcing'
+
+include 'sensing-eventsourcing'
+include 'common'
+include 'rdbms-query'
+include 'nosql-query'
+include 'event-handler'
+

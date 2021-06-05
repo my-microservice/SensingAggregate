@@ -1,0 +1,50 @@
+POST http://localhost:9010/event-sensings/auto
+Content-Type: application/json
+
+{
+  "sensorId": "5a93ef8f-daa7-4d69-9d98-00ce534669cd",
+  "actuatorId": "32e9f406-9683-4fec-bd11-26fff689234e",
+  "actuatingValue": "START",
+  "sensingValue": {
+    "temperature": "40.0",
+    "humidity" : "30.0"
+  },
+  "environmentValue": {
+    "widSpeed" : "30.0",
+    "illuminance" : "40.0"
+  }
+}
+
+###
+POST http://localhost:8000/api/v1/event-sensings/auto
+Content-Type: application/json
+
+{
+  "sensorId": "5a93ef8f-daa7-4d69-9d98-00ce534669cd",
+  "actuatorId": "32e9f406-9683-4fec-bd11-26fff689234e",
+  "actuatingValue": "START",
+  "sensingValue": {
+    "temperature": "40.0",
+    "humidity" : "30.0"
+  },
+  "environmentValue": {
+    "widSpeed" : "30.0",
+    "illuminance" : "40.0"
+  }
+}
+
+###
+POST http://localhost:8000/api/v1/event-sensings/create
+Content-Type: application/json
+
+{
+"sensorId": "5a93ef8f-daa7-4d69-9d98-00ce534669cd",
+"sensingValue": {
+"temperature": "40.0",
+"humidity" : "30.0"
+},
+"environmentValue": {
+"widSpeed" : "30.0",
+"illuminance" : "40.0"
+}
+}

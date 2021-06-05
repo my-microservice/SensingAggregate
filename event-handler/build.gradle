@@ -1,0 +1,17 @@
+ext {
+    springBootVersion = '2.3.5.RELEASE'
+    axonVersion = "4.4.3"
+}
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+    implementation 'org.springframework.kafka:spring-kafka:2.6.7'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor "org.projectlombok:lombok:1.18.16"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+
+    implementation "org.axonframework:axon-spring-boot-starter:${axonVersion}"
+    implementation "org.axonframework:axon-configuration:${axonVersion}"
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.2.6.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.6.RELEASE'
+}

@@ -1,0 +1,51 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: eventsourcing-sensing
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5434/nrf_sensing_event_sourcing
+    username: nrf_sensing_event_sourcing
+    password: DBLab1004**
+  #    driverClassName: org.postgresql.Driver
+  #    platform: postgres
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+
+multiplicationHost: http://${GATEWAY_HOST:localhost}:8000/api/v1
+
+axon:
+  serializer:
+    general: xstream
+  axonserver:
+    servers: ${AXON_HOST:localhost}:8124
+
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+logging.level.io.wisoft.eventsourcing.sensing: debug
+logging.level.org.axonframework: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
